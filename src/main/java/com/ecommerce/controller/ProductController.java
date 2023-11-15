@@ -1,5 +1,6 @@
 package com.ecommerce.controller;
 
+<<<<<<< HEAD
 import com.ecommerce.Model.Category;
 import com.ecommerce.Model.Product;
 import com.ecommerce.Model.User;
@@ -16,6 +17,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
+=======
+import com.ecommerce.dto.*;
+import org.springframework.beans.factory.annotation.Autowired;
+>>>>>>> e95eaa6831f173772dd3d5b1a0c10f53122644c8
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.FileCopyUtils;
@@ -32,6 +37,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ecommerce.resource.ProductResource;
 
+<<<<<<< HEAD
 
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -39,6 +45,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
+=======
+import io.swagger.v3.oas.annotations.Operation;
+import jakarta.servlet.http.HttpServletResponse;
+>>>>>>> e95eaa6831f173772dd3d5b1a0c10f53122644c8
 
 @RestController
 @RequestMapping("api/product")
