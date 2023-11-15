@@ -13,6 +13,7 @@ import com.ecommerce.Repositories.OrdersRepository;
 import com.ecommerce.Repositories.ProductRepository;
 import com.ecommerce.Repositories.UserRepository;
 import com.ecommerce.exception.OrderSaveFailedException;
+import com.ecommerce.service.CartService;
 import com.ecommerce.utility.Constants;
 import com.ecommerce.utility.Helper;
 import org.slf4j.Logger;
@@ -42,7 +43,7 @@ public class OrderController {
 	private final Logger LOG = LoggerFactory.getLogger(CartController.class);
 
 	@Autowired
-	private CartRepository cartService;
+	private CartService cartService;
 
 	@Autowired
 	private UserRepository userService;
