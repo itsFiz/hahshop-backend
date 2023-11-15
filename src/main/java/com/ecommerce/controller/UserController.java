@@ -3,11 +3,11 @@ package com.ecommerce.controller;
 import com.ecommerce.Model.Address;
 import com.ecommerce.Model.Product;
 import com.ecommerce.Model.User;
+import com.ecommerce.Repositories.AddressRepository;
+import com.ecommerce.Repositories.ProductRepository;
 import com.ecommerce.Repositories.UserRepository;
 import com.ecommerce.dto.*;
 import com.ecommerce.exception.UserSaveFailedException;
-import com.ecommerce.service.AddressService;
-import com.ecommerce.service.ProductService;
 import com.ecommerce.utility.Constants;
 import com.ecommerce.utility.JwtUtils;
 import org.slf4j.Logger;
@@ -31,7 +31,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ecommerce.resource.UserResource;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.util.ArrayList;
@@ -49,7 +48,7 @@ public class UserController {
 	private UserRepository userService;
 
 	@Autowired
-	private AddressService addressService;
+	private AddressRepository addressService;
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -58,13 +57,11 @@ public class UserController {
 	private AuthenticationManager authenticationManager;
 
 	@Autowired
-	private ProductService productService;
+	private ProductRepository productService;
 
 	@Autowired
 	private JwtUtils jwtUtils;
 
-	@Autowired
-	private UserResource userResource;
 
 	// RegisterUserRequestDto, we will set only email, password & role from UI
 	@PostMapping("/admin/register")

@@ -1,9 +1,9 @@
 package com.ecommerce.controller;
 
 import com.ecommerce.Model.Product;
+import com.ecommerce.Repositories.CategoryRepository;
+import com.ecommerce.Repositories.ProductRepository;
 import com.ecommerce.exception.CategorySaveFailedException;
-import com.ecommerce.service.CategoryService;
-import com.ecommerce.service.ProductService;
 import com.ecommerce.utility.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,8 +24,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ecommerce.dto.CategoryResponseDto;
 import com.ecommerce.dto.CommonApiResponse;
 import com.ecommerce.Model.Category;
-import com.ecommerce.resource.CategoryResource;
-
 
 
 import java.util.ArrayList;
@@ -36,12 +34,12 @@ import java.util.List;
 @RequestMapping("api/category")
 @CrossOrigin(origins = "http://localhost:3000")
 public class CategoryController {
-	private final Logger LOG = LoggerFactory.getLogger(CategoryResource.class);
+	private final Logger LOG = LoggerFactory.getLogger(CategoryController.class);
 	@Autowired
-	private CategoryService categoryService;
+	private CategoryRepository categoryService;
 
 	@Autowired
-	private ProductService productService;
+	private ProductRepository productService;
 
 	
 	@PostMapping("/add")
