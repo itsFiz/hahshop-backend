@@ -4,11 +4,11 @@ package com.ecommerce.controller;
 import com.ecommerce.Model.Category;
 import com.ecommerce.Model.Product;
 import com.ecommerce.Model.User;
+import com.ecommerce.Repositories.CategoryRepository;
+import com.ecommerce.Repositories.ProductRepository;
 import com.ecommerce.Repositories.UserRepository;
 import com.ecommerce.dto.*;
 import com.ecommerce.exception.ProductSaveFailedException;
-import com.ecommerce.service.CategoryService;
-import com.ecommerce.service.ProductService;
 import com.ecommerce.service.StorageService;
 import com.ecommerce.utility.Constants;
 import jakarta.servlet.ServletOutputStream;
@@ -34,9 +34,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ecommerce.resource.ProductResource;
-
-
 
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -51,13 +48,13 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 public class ProductController {
 
-	private final Logger LOG = LoggerFactory.getLogger(ProductResource.class);
+	private final Logger LOG = LoggerFactory.getLogger(ProductController.class);
 
 	@Autowired
-	private ProductService productService;
+	private ProductRepository productService;
 
 	@Autowired
-	private CategoryService categoryService;
+	private CategoryRepository categoryService;
 
 	@Autowired
 	private UserRepository userService;
