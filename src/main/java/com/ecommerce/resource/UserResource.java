@@ -169,7 +169,7 @@ public class UserResource {
 		
 		Address address = new Address();
 		address.setCity(request.getCity());
-		address.setPincode(request.getPincode());
+		address.setPostcode(request.getPostcode());
 		address.setStreet(request.getStreet());
 
 		Address savedAddress = this.addressService.addAddress(address);

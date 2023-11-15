@@ -25,7 +25,7 @@ public class RegisterUserRequestDto {
 
 	private String city;
 
-	private int pincode;
+	private int postcode;
 	
 	private int sellerId;   // seller id for delivery person
 	

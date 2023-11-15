@@ -39,8 +39,5 @@ public class Product {
 	
 	private String image1;
 	
-	private String image2;
-	
-	private String image3;
-	
+
 }

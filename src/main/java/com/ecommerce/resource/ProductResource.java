@@ -90,12 +90,9 @@ public class ProductResource {
 
 		// store product image in Image Folder and give name to store in database
 		String productImageName1 = storageService.store(productDto.getImage1());
-		String productImageName2 = storageService.store(productDto.getImage2());
-		String productImageName3 = storageService.store(productDto.getImage3());
+
 
 		product.setImage1(productImageName1);
-		product.setImage2(productImageName2);
-		product.setImage3(productImageName3);
 
 		Product savedProduct = this.productService.addProduct(product);
 
@@ -168,7 +165,7 @@ public class ProductResource {
 			return new ResponseEntity<CommonApiResponse>(response, HttpStatus.BAD_REQUEST);
 		}
 
-		if (request.getImage1() == null || request.getImage2() == null || request.getImage3() == null) {
+		if (request.getImage1() == null ) {
 			response.setResponseMessage("Image not selected");
 			response.setSuccess(false);
 
@@ -178,18 +175,15 @@ public class ProductResource {
 		Product product = this.productService.getProductById(request.getId());
 
 		String existingImage1 = product.getImage1();
-		String existingImage2 = product.getImage2();
-		String existingImage3 = product.getImage3();
+
 
 		// store updated product image in Image Folder and give name to store in
 		// database
 		String productImageName1 = storageService.store(request.getImage1());
-		String productImageName2 = storageService.store(request.getImage2());
-		String productImageName3 = storageService.store(request.getImage3());
+
 
 		product.setImage1(productImageName1);
-		product.setImage2(productImageName2);
-		product.setImage3(productImageName3);
+
 
 		Product updatedProduct = this.productService.addProduct(product);
 
@@ -200,8 +194,6 @@ public class ProductResource {
 		// deleting the existing image from the folder
 		try {
 			this.storageService.delete(existingImage1);
-			this.storageService.delete(existingImage2);
-			this.storageService.delete(existingImage3);
 
 		} catch (Exception e) {
 			LOG.error("Exception Caught: " + e.getMessage());

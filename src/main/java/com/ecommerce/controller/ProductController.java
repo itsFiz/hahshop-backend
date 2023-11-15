@@ -1,11 +1,7 @@
 package com.ecommerce.controller;
 
-import com.ecommerce.dao.UploadRepo;
 import com.ecommerce.dto.*;
-import com.ecommerce.entity.Upload;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,9 +18,6 @@ import com.ecommerce.resource.ProductResource;
 
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.File;
 
 @RestController
 @RequestMapping("api/product")

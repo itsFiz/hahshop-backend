@@ -18,6 +18,6 @@ public class Address {
 
 	private String city;
 
-	private int pincode;
+	private int postcode;
 
 }

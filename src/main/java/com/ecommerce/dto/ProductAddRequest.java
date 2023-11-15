@@ -28,13 +28,10 @@ public class ProductAddRequest {
 
 	private MultipartFile image1;
 
-	private MultipartFile image2;
-
-	private MultipartFile image3;
 
 	public static Product toEntity(ProductAddRequest dto) {
 		Product entity = new Product();
-		BeanUtils.copyProperties(dto, entity, "image1", "image2", "image3", "categoryId", "sellerId");
+		BeanUtils.copyProperties(dto, entity, "image1", "categoryId", "sellerId");
 		return entity;
 	}
 
