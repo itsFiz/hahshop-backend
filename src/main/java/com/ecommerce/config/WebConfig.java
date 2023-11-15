@@ -12,6 +12,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+// set up cors configuration
 @Configuration
 @EnableWebMvc
 public class WebConfig {
@@ -38,7 +39,7 @@ public class WebConfig {
         source.registerCorsConfiguration("/**", config);
         FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(source));
 
-        // should be set order to -100 because we need to CorsFilter before SpringSecurityFilter
+
         bean.setOrder(CORS_FILTER_ORDER);
         return bean;
     }

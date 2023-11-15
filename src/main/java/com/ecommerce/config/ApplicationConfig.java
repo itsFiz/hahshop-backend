@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.ecommerce.interceptor.RequestHeaderInterceptor;
 
 
-// for interceptor
+//  to register interceptor
 @Configuration
 public class ApplicationConfig implements WebMvcConfigurer {
 	
