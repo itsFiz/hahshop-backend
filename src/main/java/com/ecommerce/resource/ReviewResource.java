@@ -4,6 +4,8 @@ import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
 
+import com.ecommerce.Repositories.ReviewRepository;
+import com.ecommerce.Repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +22,6 @@ import com.ecommerce.Model.Review;
 import com.ecommerce.Model.User;
 import com.ecommerce.exception.ReviewSaveFailedException;
 import com.ecommerce.service.ProductService;
-import com.ecommerce.service.ReviewService;
-import com.ecommerce.service.UserService;
 
 @Component
 public class ReviewResource {
@@ -32,10 +32,10 @@ public class ReviewResource {
 	private ProductService productService;
 
 	@Autowired
-	private UserService userService;
+	private UserRepository userService;
 
 	@Autowired
-	private ReviewService reviewService;
+	private ReviewRepository reviewService;
 
 	public ResponseEntity<CommonApiResponse> addReview(AddReviewRequest request) {
 
@@ -136,7 +136,7 @@ public class ReviewResource {
 			return 0.0;
 		}
 
-		// Calculate the sum of all the ratings
+
 		int sum = 0;
 
 		for (Review review : reviews) {

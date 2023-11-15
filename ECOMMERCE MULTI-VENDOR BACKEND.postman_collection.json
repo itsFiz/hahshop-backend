@@ -481,16 +481,12 @@
 								},
 								{
 									"key": "price",
-									"value": "499",
+									"value\": \"50\",\n\t\t\t\t\t\t\t\t\t\"type\": \"text\"\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"kalue": "499",
 									"type": "text"
 								},
 								{
 									"key": "quantity",
-									"value": "50",
-									"type": "text"
-								},
-								{
-									"key": "categoryId",
+									"vey": "categoryId",
 									"value": "1",
 									"type": "text"
 								},

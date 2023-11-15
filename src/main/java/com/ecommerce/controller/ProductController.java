@@ -4,12 +4,12 @@ package com.ecommerce.controller;
 import com.ecommerce.Model.Category;
 import com.ecommerce.Model.Product;
 import com.ecommerce.Model.User;
+import com.ecommerce.Repositories.UserRepository;
 import com.ecommerce.dto.*;
 import com.ecommerce.exception.ProductSaveFailedException;
 import com.ecommerce.service.CategoryService;
 import com.ecommerce.service.ProductService;
 import com.ecommerce.service.StorageService;
-import com.ecommerce.service.UserService;
 import com.ecommerce.utility.Constants;
 import jakarta.servlet.ServletOutputStream;
 import org.slf4j.Logger;
@@ -60,7 +60,7 @@ public class ProductController {
 	private CategoryService categoryService;
 
 	@Autowired
-	private UserService userService;
+	private UserRepository userService;
 
 	@Autowired
 	private StorageService storageService;

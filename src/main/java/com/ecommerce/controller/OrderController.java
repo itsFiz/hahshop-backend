@@ -8,12 +8,12 @@ import com.ecommerce.Model.Cart;
 import com.ecommerce.Model.Orders;
 import com.ecommerce.Model.Product;
 import com.ecommerce.Model.User;
+import com.ecommerce.Repositories.UserRepository;
 import com.ecommerce.exception.OrderSaveFailedException;
 import com.ecommerce.resource.CartResource;
 import com.ecommerce.service.CartService;
 import com.ecommerce.service.OrderService;
 import com.ecommerce.service.ProductService;
-import com.ecommerce.service.UserService;
 import com.ecommerce.utility.Constants;
 import com.ecommerce.utility.Helper;
 import org.slf4j.Logger;
@@ -48,7 +48,7 @@ public class OrderController {
 	private CartService cartService;
 
 	@Autowired
-	private UserService userService;
+	private UserRepository userService;
 
 	@Autowired
 	private ProductService productService;

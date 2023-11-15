@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
+import com.ecommerce.Repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,6 @@ import com.ecommerce.exception.ProductSaveFailedException;
 import com.ecommerce.service.CategoryService;
 import com.ecommerce.service.ProductService;
 import com.ecommerce.service.StorageService;
-import com.ecommerce.service.UserService;
 import com.ecommerce.utility.Constants.ProductStatus;
 
 import jakarta.servlet.ServletOutputStream;
@@ -46,7 +46,7 @@ public class ProductResource {
 	private CategoryService categoryService;
 
 	@Autowired
-	private UserService userService;
+	private UserRepository userService;
 
 	@Autowired
 	private StorageService storageService;

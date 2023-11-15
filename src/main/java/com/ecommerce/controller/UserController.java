@@ -3,11 +3,11 @@ package com.ecommerce.controller;
 import com.ecommerce.Model.Address;
 import com.ecommerce.Model.Product;
 import com.ecommerce.Model.User;
+import com.ecommerce.Repositories.UserRepository;
 import com.ecommerce.dto.*;
 import com.ecommerce.exception.UserSaveFailedException;
 import com.ecommerce.service.AddressService;
 import com.ecommerce.service.ProductService;
-import com.ecommerce.service.UserService;
 import com.ecommerce.utility.Constants;
 import com.ecommerce.utility.JwtUtils;
 import org.slf4j.Logger;
@@ -46,7 +46,7 @@ public class UserController {
 	private final Logger LOG = LoggerFactory.getLogger(UserController.class);
 
 	@Autowired
-	private UserService userService;
+	private UserRepository userService;
 
 	@Autowired
 	private AddressService addressService;

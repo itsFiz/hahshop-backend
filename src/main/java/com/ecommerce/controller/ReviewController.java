@@ -3,11 +3,11 @@ package com.ecommerce.controller;
 import com.ecommerce.Model.Product;
 import com.ecommerce.Model.Review;
 import com.ecommerce.Model.User;
+import com.ecommerce.Repositories.ReviewRepository;
+import com.ecommerce.Repositories.UserRepository;
 import com.ecommerce.exception.ReviewSaveFailedException;
 import com.ecommerce.resource.ProductResource;
 import com.ecommerce.service.ProductService;
-import com.ecommerce.service.ReviewService;
-import com.ecommerce.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,10 +43,10 @@ public class ReviewController {
 	private ProductService productService;
 
 	@Autowired
-	private UserService userService;
+	private UserRepository userService;
 
 	@Autowired
-	private ReviewService reviewService;
+	private ReviewRepository reviewService;
 	
 	@Autowired
 	private ReviewResource reviewResource;

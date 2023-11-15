@@ -3,10 +3,11 @@ package com.ecommerce.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.ecommerce.Repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ecommerce.Repositories.ProductRepo;
+
 import com.ecommerce.Model.Category;
 import com.ecommerce.Model.Product;
 import com.ecommerce.Model.User;
@@ -15,22 +16,22 @@ import com.ecommerce.Model.User;
 public class ProductServiceImpl implements ProductService {
 
 	@Autowired
-	private ProductRepo productDao;
+	private ProductRepository productRepository;
 
 	@Override
 	public Product addProduct(Product product) {
-		return productDao.save(product);
+		return productRepository.save(product);
 	}
 
 	@Override
 	public Product updateProduct(Product product) {
-		return productDao.save(product);
+		return productRepository.save(product);
 	}
 
 	@Override
 	public Product getProductById(int productId) {
 
-		Optional<Product> optionalProduct = productDao.findById(productId);
+		Optional<Product> optionalProduct = productRepository.findById(productId);
 
 		if (optionalProduct.isPresent()) {
 			return optionalProduct.get();
@@ -42,49 +43,49 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<Product> getAllProductByStatusIn(List<String> status) {
-		return this.productDao.findByStatusIn(status);
+		return this.productRepository.findByStatusIn(status);
 	}
 
 	@Override
 	public Long countByStatusIn(List<String> status) {
-		return this.productDao.countByStatusIn(status);
+		return this.productRepository.countByStatusIn(status);
 	}
 
 	@Override
 	public Long countByStatusInAndSeller(List<String> status, User seller) {
-		return this.productDao.countByStatusInAndSeller(status, seller);
+		return this.productRepository.countByStatusInAndSeller(status, seller);
 	}
 
 	@Override
 	public List<Product> getAllProductBySellerAndStatusIn(User Seller, List<String> status) {
-		return this.productDao.findBySellerAndStatusIn(Seller, status);
+		return this.productRepository.findBySellerAndStatusIn(Seller, status);
 	}
 
 	@Override
 	public List<Product> getAllProductBySellerAndCategoryAndStatusIn(User seller, Category category,
 			List<String> status) {
-		return this.productDao.findBySellerAndCategoryAndAndStatusIn(seller, category, status);
+		return this.productRepository.findBySellerAndCategoryAndAndStatusIn(seller, category, status);
 	}
 
 	@Override
 	public List<Product> updateAllProduct(List<Product> products) {
-		return this.productDao.saveAll(products);
+		return this.productRepository.saveAll(products);
 	}
 
 	@Override
 	public List<Product> getAllProductByCategoryAndStatusIn(Category category, List<String> status) {
-		return this.productDao.findByCategoryAndStatusIn(category, status);
+		return this.productRepository.findByCategoryAndStatusIn(category, status);
 	}
 
 	@Override
 	public List<Product> searchProductNameAndStatusIn(String productName, List<String> status) {
 
-		return this.productDao.findByNameContainingIgnoreCaseAndStatusIn(productName, status);
+		return this.productRepository.findByNameContainingIgnoreCaseAndStatusIn(productName, status);
 	}
 
 	@Override
 	public List<Product> searchProductNameAndSellerAndStatusIn(String productName, User seller, List<String> status) {
-		return this.productDao.findByNameContainingIgnoreCaseAndSellerAndStatusIn(productName, seller, status);
+		return this.productRepository.findByNameContainingIgnoreCaseAndSellerAndStatusIn(productName, seller, status);
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.ecommerce.Repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,6 @@ import com.ecommerce.Model.User;
 import com.ecommerce.exception.UserSaveFailedException;
 import com.ecommerce.service.AddressService;
 import com.ecommerce.service.ProductService;
-import com.ecommerce.service.UserService;
 import com.ecommerce.utility.Constants.ProductStatus;
 import com.ecommerce.utility.Constants.UserRole;
 import com.ecommerce.utility.Constants.UserStatus;
@@ -45,7 +45,7 @@ public class UserResource {
 	private final Logger LOG = LoggerFactory.getLogger(UserResource.class);
 
 	@Autowired
-	private UserService userService;
+	private UserRepository userService;
 
 	@Autowired
 	private AddressService addressService;

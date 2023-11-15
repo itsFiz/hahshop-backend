@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.ecommerce.Repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,6 @@ import com.ecommerce.exception.OrderSaveFailedException;
 import com.ecommerce.service.CartService;
 import com.ecommerce.service.OrderService;
 import com.ecommerce.service.ProductService;
-import com.ecommerce.service.UserService;
 import com.ecommerce.utility.Constants.DeliveryStatus;
 import com.ecommerce.utility.Constants.DeliveryTime;
 import com.ecommerce.utility.Helper;
@@ -44,7 +44,7 @@ public class OrderResource {
 	private CartService cartService;
 
 	@Autowired
-	private UserService userService;
+	private UserRepository userService;
 
 	@Autowired
 	private ProductService productService;

@@ -6,6 +6,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ecommerce.Repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,6 @@ import com.ecommerce.Model.User;
 import com.ecommerce.exception.CartSaveFailedException;
 import com.ecommerce.service.CartService;
 import com.ecommerce.service.ProductService;
-import com.ecommerce.service.UserService;
 
 import jakarta.transaction.Transactional;
 
@@ -37,7 +37,7 @@ public class CartResource {
 	private CartService cartService;
 
 	@Autowired
-	private UserService userService;
+	private UserRepository userService;
 
 	@Autowired
 	private ProductService productService;

@@ -3,10 +3,10 @@ package com.ecommerce.controller;
 import com.ecommerce.Model.Cart;
 import com.ecommerce.Model.Product;
 import com.ecommerce.Model.User;
+import com.ecommerce.Repositories.UserRepository;
 import com.ecommerce.exception.CartSaveFailedException;
 import com.ecommerce.service.CartService;
 import com.ecommerce.service.ProductService;
-import com.ecommerce.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +46,7 @@ public class CartController {
 	private CartService cartService;
 
 	@Autowired
-	private UserService userService;
+	private UserRepository userService;
 
 	@Autowired
 	private ProductService productService;

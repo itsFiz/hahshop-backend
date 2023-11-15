@@ -1,5 +1,6 @@
 package com.ecommerce;
 
+import com.ecommerce.Repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.ecommerce.Model.User;
-import com.ecommerce.service.UserService;
 import com.ecommerce.utility.Constants.UserRole;
 import com.ecommerce.utility.Constants.UserStatus;
 
@@ -19,7 +19,7 @@ public class EcommerceBackendApplication implements CommandLineRunner {
 	private final Logger LOG = LoggerFactory.getLogger(EcommerceBackendApplication.class);
 
 	@Autowired
-	private UserService userService;
+	private UserRepository userService;
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
