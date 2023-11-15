@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.ecommerce.entity.Product;
+import com.ecommerce.Model.Product;
 
 import lombok.Data;
 

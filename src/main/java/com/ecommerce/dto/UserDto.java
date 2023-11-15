@@ -2,8 +2,8 @@ package com.ecommerce.dto;
 
 import org.springframework.beans.BeanUtils;
 
-import com.ecommerce.entity.Address;
-import com.ecommerce.entity.User;
+import com.ecommerce.Model.Address;
+import com.ecommerce.Model.User;
 
 import lombok.Data;
 

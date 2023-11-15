@@ -24,9 +24,9 @@ import com.ecommerce.dto.UserLoginRequest;
 import com.ecommerce.dto.UserLoginResponse;
 import com.ecommerce.dto.UserResponseDto;
 import com.ecommerce.dto.UserStatusUpdateRequestDto;
-import com.ecommerce.entity.Address;
-import com.ecommerce.entity.Product;
-import com.ecommerce.entity.User;
+import com.ecommerce.Model.Address;
+import com.ecommerce.Model.Product;
+import com.ecommerce.Model.User;
 import com.ecommerce.exception.UserSaveFailedException;
 import com.ecommerce.service.AddressService;
 import com.ecommerce.service.ProductService;
@@ -169,7 +169,7 @@ public class UserResource {
 		
 		Address address = new Address();
 		address.setCity(request.getCity());
-		address.setPincode(request.getPincode());
+		address.setPostcode(request.getPostcode());
 		address.setStreet(request.getStreet());
 
 		Address savedAddress = this.addressService.addAddress(address);

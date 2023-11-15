@@ -3,7 +3,7 @@ package com.ecommerce.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ecommerce.entity.Product;
+import com.ecommerce.Model.Product;
 
 import lombok.Data;
 

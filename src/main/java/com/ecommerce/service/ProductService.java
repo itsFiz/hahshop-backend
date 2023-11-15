@@ -2,9 +2,9 @@ package com.ecommerce.service;
 
 import java.util.List;
 
-import com.ecommerce.entity.Category;
-import com.ecommerce.entity.Product;
-import com.ecommerce.entity.User;
+import com.ecommerce.Model.Category;
+import com.ecommerce.Model.Product;
+import com.ecommerce.Model.User;
 
 public interface ProductService {
 

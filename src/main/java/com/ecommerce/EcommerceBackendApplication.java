@@ -8,7 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.ecommerce.entity.User;
+import com.ecommerce.Model.User;
 import com.ecommerce.service.UserService;
 import com.ecommerce.utility.Constants.UserRole;
 import com.ecommerce.utility.Constants.UserStatus;

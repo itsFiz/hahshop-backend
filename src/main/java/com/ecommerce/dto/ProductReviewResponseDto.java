@@ -3,7 +3,7 @@ package com.ecommerce.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ecommerce.entity.Review;
+import com.ecommerce.Model.Review;
 
 import lombok.Data;
 

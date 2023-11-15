@@ -14,8 +14,8 @@ import org.springframework.util.CollectionUtils;
 
 import com.ecommerce.dto.CategoryResponseDto;
 import com.ecommerce.dto.CommonApiResponse;
-import com.ecommerce.entity.Category;
-import com.ecommerce.entity.Product;
+import com.ecommerce.Model.Category;
+import com.ecommerce.Model.Product;
 import com.ecommerce.exception.CategorySaveFailedException;
 import com.ecommerce.service.CategoryService;
 import com.ecommerce.service.ProductService;

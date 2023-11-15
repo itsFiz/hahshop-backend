@@ -2,7 +2,7 @@ package com.ecommerce.dto;
 
 import org.springframework.beans.BeanUtils;
 
-import com.ecommerce.entity.User;
+import com.ecommerce.Model.User;
 
 import lombok.Data;
 
@@ -25,7 +25,7 @@ public class RegisterUserRequestDto {
 
 	private String city;
 
-	private int pincode;
+	private int postcode;
 	
 	private int sellerId;   // seller id for delivery person
 	

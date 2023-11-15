@@ -2,9 +2,9 @@ package com.ecommerce.service;
 
 import java.util.List;
 
-import com.ecommerce.entity.Product;
-import com.ecommerce.entity.Review;
-import com.ecommerce.entity.User;
+import com.ecommerce.Model.Product;
+import com.ecommerce.Model.Review;
+import com.ecommerce.Model.User;
 
 public interface ReviewService {
 	

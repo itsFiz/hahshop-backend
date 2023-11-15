@@ -6,44 +6,44 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ecommerce.dao.UserDao;
-import com.ecommerce.entity.User;
+import com.ecommerce.Repositories.UserRepo;
+import com.ecommerce.Model.User;
 
 @Service
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	private UserDao userDao;
+	private UserRepo userRepo;
 
 	@Override
 	public User addUser(User user) {
-		return userDao.save(user);
+		return userRepo.save(user);
 	}
 
 	@Override
 	public User updateUser(User user) {
-		return userDao.save(user);
+		return userRepo.save(user);
 	}
 
 	@Override
 	public User getUserByEmailAndStatus(String emailId, String status) {
-		return userDao.findByEmailIdAndStatus(emailId, status);
+		return userRepo.findByEmailIdAndStatus(emailId, status);
 	}
 
 	@Override
 	public User getUserByEmailid(String emailId) {
-		return userDao.findByEmailId(emailId);
+		return userRepo.findByEmailId(emailId);
 	}
 
 	@Override
 	public List<User> getUserByRole(String role) {
-		return userDao.findByRole(role);
+		return userRepo.findByRole(role);
 	}
 
 	@Override
 	public User getUserById(int userId) {
 
-		Optional<User> optionalUser = this.userDao.findById(userId);
+		Optional<User> optionalUser = this.userRepo.findById(userId);
 
 		if (optionalUser.isPresent()) {
 			return optionalUser.get();
@@ -55,22 +55,22 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public User getUserByEmailIdAndRoleAndStatus(String emailId, String role, String status) {
-		return this.userDao.findByEmailIdAndRoleAndStatus(emailId, role, status);
+		return this.userRepo.findByEmailIdAndRoleAndStatus(emailId, role, status);
 	}
 
 	@Override
 	public List<User> getUserBySellerAndRoleAndStatusIn(User seller, String role, List<String> status) {
-		return this.userDao.findBySellerAndRoleAndStatusIn(seller, role, status);
+		return this.userRepo.findBySellerAndRoleAndStatusIn(seller, role, status);
 	}
 
 	@Override
 	public List<User> updateAllUser(List<User> users) {
-		return this.userDao.saveAll(users);
+		return this.userRepo.saveAll(users);
 	}
 
 	@Override
 	public List<User> getUserByRoleAndStatus(String role, String status) {
-		return this.userDao.findByRoleAndStatus(role, status);
+		return this.userRepo.findByRoleAndStatus(role, status);
 	}
 	
 }

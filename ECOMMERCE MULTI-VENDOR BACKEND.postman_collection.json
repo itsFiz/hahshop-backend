@@ -52,7 +52,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"firstName\": \"Sonu\",\r\n  \"lastName\": \"Shaikh\",\r\n  \"emailId\": \"sonu@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"phoneNo\": \"1234567890\",\r\n  \"role\": \"Customer\",\r\n  \"street\": \"Demo Street\",\r\n  \"city\": \"Demo City\",\r\n  \"pincode\": 123456\r\n}",
+							"raw": "{\r\n  \"firstName\": \"Sonu\",\r\n  \"lastName\": \"Shaikh\",\r\n  \"emailId\": \"sonu@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"phoneNo\": \"1234567890\",\r\n  \"role\": \"Customer\",\r\n  \"street\": \"Demo Street\",\r\n  \"city\": \"Demo City\",\r\n  \"postcode\": 123456\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -85,7 +85,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"firstName\": \"Flipkart\",\r\n  \"lastName\": \"Flipkart\",\r\n  \"emailId\": \"flipkart@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"phoneNo\": \"1597864530\",\r\n  \"role\": \"Seller\",\r\n  \"street\": \"Demo Street\",\r\n  \"city\": \"Demo City\",\r\n  \"pincode\": 123456\r\n}",
+							"raw": "{\r\n  \"firstName\": \"Flipkart\",\r\n  \"lastName\": \"Flipkart\",\r\n  \"emailId\": \"flipkart@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"phoneNo\": \"1597864530\",\r\n  \"role\": \"Seller\",\r\n  \"street\": \"Demo Street\",\r\n  \"city\": \"Demo City\",\r\n  \"postcode\": 123456\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -118,7 +118,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"firstName\": \"Flipkart Delivery\",\r\n  \"lastName\": \"Flipkart Delivery\",\r\n  \"emailId\": \"flipkartdelivery@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"phoneNo\": \"1239564870\",\r\n  \"role\": \"Delivery\",\r\n  \"street\": \"Demo Street\",\r\n  \"city\": \"Demo City\",\r\n  \"pincode\": 123456,\r\n  \"sellerId\": 6\r\n}",
+							"raw": "{\r\n  \"firstName\": \"Flipkart Delivery\",\r\n  \"lastName\": \"Flipkart Delivery\",\r\n  \"emailId\": \"flipkartdelivery@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"phoneNo\": \"1239564870\",\r\n  \"role\": \"Delivery\",\r\n  \"street\": \"Demo Street\",\r\n  \"city\": \"Demo City\",\r\n  \"postcode\": 123456,\r\n  \"sellerId\": 6\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

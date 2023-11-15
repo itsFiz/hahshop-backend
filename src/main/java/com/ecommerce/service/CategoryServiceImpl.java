@@ -6,29 +6,29 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ecommerce.dao.CategoryDao;
-import com.ecommerce.entity.Category;
+import com.ecommerce.Repositories.CategoryRepo;
+import com.ecommerce.Model.Category;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
 	@Autowired
-	private CategoryDao categoryDao;
+	private CategoryRepo categoryRepo;
 
 	@Override
 	public Category addCategory(Category category) {
-		return this.categoryDao.save(category);
+		return this.categoryRepo.save(category);
 	}
 
 	@Override
 	public Category updateCategory(Category category) {
-		return this.categoryDao.save(category);
+		return this.categoryRepo.save(category);
 	}
 
 	@Override
 	public Category getCategoryById(int categoryId) {
 
-		Optional<Category> optionalCategory = this.categoryDao.findById(categoryId);
+		Optional<Category> optionalCategory = this.categoryRepo.findById(categoryId);
 
 		if (optionalCategory.isPresent()) {
 			return optionalCategory.get();
@@ -40,7 +40,7 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public List<Category> getCategoriesByStatusIn(List<String> status) {
-		return this.categoryDao.findByStatusIn(status);
+		return this.categoryRepo.findByStatusIn(status);
 	}
 
 }

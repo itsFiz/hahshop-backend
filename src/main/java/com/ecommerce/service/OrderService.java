@@ -2,8 +2,8 @@ package com.ecommerce.service;
 
 import java.util.List;
 
-import com.ecommerce.entity.Orders;
-import com.ecommerce.entity.User;
+import com.ecommerce.Model.Orders;
+import com.ecommerce.Model.User;
 
 public interface OrderService {
 

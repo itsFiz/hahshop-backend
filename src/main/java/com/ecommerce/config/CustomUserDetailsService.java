@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-import com.ecommerce.entity.User;
+import com.ecommerce.Model.User;
 import com.ecommerce.service.UserService;
 import com.ecommerce.utility.Constants.UserStatus;
 

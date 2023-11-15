@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ecommerce.entity.Cart;
+import com.ecommerce.Model.Cart;
 
 import lombok.Data;
 

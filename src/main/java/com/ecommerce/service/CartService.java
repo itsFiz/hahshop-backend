@@ -2,8 +2,8 @@ package com.ecommerce.service;
 
 import java.util.List;
 
-import com.ecommerce.entity.Cart;
-import com.ecommerce.entity.User;
+import com.ecommerce.Model.Cart;
+import com.ecommerce.Model.User;
 
 public interface CartService {
 

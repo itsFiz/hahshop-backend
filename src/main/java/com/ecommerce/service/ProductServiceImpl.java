@@ -6,16 +6,16 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ecommerce.dao.ProductDao;
-import com.ecommerce.entity.Category;
-import com.ecommerce.entity.Product;
-import com.ecommerce.entity.User;
+import com.ecommerce.Repositories.ProductRepo;
+import com.ecommerce.Model.Category;
+import com.ecommerce.Model.Product;
+import com.ecommerce.Model.User;
 
 @Service
 public class ProductServiceImpl implements ProductService {
 
 	@Autowired
-	private ProductDao productDao;
+	private ProductRepo productDao;
 
 	@Override
 	public Product addProduct(Product product) {

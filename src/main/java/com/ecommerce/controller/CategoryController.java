@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ecommerce.dto.CategoryResponseDto;
 import com.ecommerce.dto.CommonApiResponse;
-import com.ecommerce.entity.Category;
+import com.ecommerce.Model.Category;
 import com.ecommerce.resource.CategoryResource;
 
 import io.swagger.v3.oas.annotations.Operation;

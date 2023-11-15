@@ -6,40 +6,40 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ecommerce.dao.CartDao;
-import com.ecommerce.entity.Cart;
-import com.ecommerce.entity.User;
+import com.ecommerce.Repositories.CartRepo;
+import com.ecommerce.Model.Cart;
+import com.ecommerce.Model.User;
 
 @Service
 public class CartServiceImpl implements CartService {
 	
 	@Autowired
-	private CartDao cartDao;
+	private CartRepo cartRepo;
 
 	@Override
 	public List<Cart> addToCart(List<Cart> cart) {
-		return cartDao.saveAll(cart);
+		return cartRepo.saveAll(cart);
 	}
 
 	@Override
 	public Cart updateCart(Cart cart) {
-		return cartDao.save(cart);
+		return cartRepo.save(cart);
 	}
 
 	@Override
 	public void deleteCart(Cart cart) {
-		cartDao.delete(cart);
+		cartRepo.delete(cart);
 	}
 
 	@Override
 	public List<Cart> findByUser(User user) {
-		return cartDao.findByUser(user);
+		return cartRepo.findByUser(user);
 	}
 
 	@Override
 	public Cart getCartById(int cartId) {
 		
-		Optional<Cart> optionalCart = this.cartDao.findById(cartId);
+		Optional<Cart> optionalCart = this.cartRepo.findById(cartId);
 		
 		if(optionalCart.isPresent()) {
 			return optionalCart.get();
@@ -52,7 +52,7 @@ public class CartServiceImpl implements CartService {
 
 	@Override
 	public void deleteCarts(List<Cart> carts) {
-		this.cartDao.deleteAll(carts);
+		this.cartRepo.deleteAll(carts);
 	}
 
 }

@@ -1,9 +1,6 @@
 package com.ecommerce.service;
 
-import java.util.List;
-
-import com.ecommerce.entity.Address;
-import com.ecommerce.entity.User;
+import com.ecommerce.Model.Address;
 
 public interface AddressService {
 	

@@ -6,15 +6,15 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ecommerce.dao.OrdersDao;
-import com.ecommerce.entity.Orders;
-import com.ecommerce.entity.User;
+import com.ecommerce.Repositories.OrdersRepo;
+import com.ecommerce.Model.Orders;
+import com.ecommerce.Model.User;
 
 @Service
 public class OrderServiceImpl implements OrderService {
 
 	@Autowired
-	private OrdersDao orderDao;
+	private OrdersRepo orderDao;
 
 	@Override
 	public List<Orders> addOrder(List<Orders> orders) {
