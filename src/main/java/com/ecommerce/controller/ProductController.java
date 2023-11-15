@@ -1,6 +1,6 @@
 package com.ecommerce.controller;
 
-<<<<<<< HEAD
+
 import com.ecommerce.Model.Category;
 import com.ecommerce.Model.Product;
 import com.ecommerce.Model.User;
@@ -17,10 +17,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
-=======
-import com.ecommerce.dto.*;
-import org.springframework.beans.factory.annotation.Autowired;
->>>>>>> e95eaa6831f173772dd3d5b1a0c10f53122644c8
+
+
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.FileCopyUtils;
@@ -37,7 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ecommerce.resource.ProductResource;
 
-<<<<<<< HEAD
+
 
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -45,10 +44,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
-=======
-import io.swagger.v3.oas.annotations.Operation;
-import jakarta.servlet.http.HttpServletResponse;
->>>>>>> e95eaa6831f173772dd3d5b1a0c10f53122644c8
+
 
 @RestController
 @RequestMapping("api/product")
@@ -109,12 +105,10 @@ public class ProductController {
 
 		// store product image in Image Folder and give name to store in database
 		String productImageName1 = storageService.store(productDto.getImage1());
-		String productImageName2 = storageService.store(productDto.getImage2());
-		String productImageName3 = storageService.store(productDto.getImage3());
+
 
 		product.setImage1(productImageName1);
-		product.setImage2(productImageName2);
-		product.setImage3(productImageName3);
+
 
 		Product savedProduct = this.productService.addProduct(product);
 
@@ -188,7 +182,7 @@ public class ProductController {
 			return new ResponseEntity<CommonApiResponse>(response, HttpStatus.BAD_REQUEST);
 		}
 
-		if (request.getImage1() == null || request.getImage2() == null || request.getImage3() == null) {
+		if (request.getImage1() == null ) {
 			response.setResponseMessage("Image not selected");
 			response.setSuccess(false);
 
@@ -198,18 +192,15 @@ public class ProductController {
 		Product product = this.productService.getProductById(request.getId());
 
 		String existingImage1 = product.getImage1();
-		String existingImage2 = product.getImage2();
-		String existingImage3 = product.getImage3();
+
 
 		// store updated product image in Image Folder and give name to store in
 		// database
 		String productImageName1 = storageService.store(request.getImage1());
-		String productImageName2 = storageService.store(request.getImage2());
-		String productImageName3 = storageService.store(request.getImage3());
+
 
 		product.setImage1(productImageName1);
-		product.setImage2(productImageName2);
-		product.setImage3(productImageName3);
+
 
 		Product updatedProduct = this.productService.addProduct(product);
 
@@ -220,8 +211,7 @@ public class ProductController {
 		// deleting the existing image from the folder
 		try {
 			this.storageService.delete(existingImage1);
-			this.storageService.delete(existingImage2);
-			this.storageService.delete(existingImage3);
+
 
 		} catch (Exception e) {
 			LOG.error("Exception Caught: " + e.getMessage());
