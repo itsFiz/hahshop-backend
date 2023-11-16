@@ -368,8 +368,7 @@ public class OrderController {
 
 		OrderResponseDto response = new OrderResponseDto();
 
-		if (request == null || request.getOrderId() == null || request.getDeliveryStatus() == null
-				|| request.getDeliveryTime() == null || request.getDeliveryId() == 0) {
+		if (request == null || request.getOrderId() == null || request.getDeliveryStatus() == null) {
 			response.setResponseMessage("missing input");
 			response.setSuccess(false);
 
@@ -389,18 +388,11 @@ public class OrderController {
 			return new ResponseEntity<OrderResponseDto>(response, HttpStatus.BAD_REQUEST);
 		}
 
-		if (deliveryPerson == null) {
-			response.setOrders(orders);
-			response.setResponseMessage("Delivery Person not found");
-			response.setSuccess(false);
 
-			return new ResponseEntity<OrderResponseDto>(response, HttpStatus.BAD_REQUEST);
-		}
 
 		for (Orders order : orders) {
 			order.setStatus(request.getDeliveryStatus());
-			order.setDeliveryDate(request.getDeliveryDate());
-			order.setDeliveryTime(request.getDeliveryTime());
+
 
 			if (request.getDeliveryStatus().equals(Constants.DeliveryStatus.DELIVERED.value())) {
 				order.setDeliveryStatus(Constants.DeliveryStatus.DELIVERED.value());
