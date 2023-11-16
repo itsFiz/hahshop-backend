@@ -52,7 +52,7 @@ public class SecurityConfig {
 						.requestMatchers("/api/user/fetch/seller/delivery-person", "/api/user/delete/seller/delivery-person", "/api/product/update/image",
 								"/api/product/update/detail", "/api/product/add", "/api/product/delete",
 								"/api/order/assign/delivery-person", "/api/order/fetch/seller-wise",
-								"/api/product/review/seller")
+								"/api/product/review/seller", "/api/order/update/delivery-status")
 						.hasAuthority(UserRole.ROLE_SELLER.value())
 
 						// this APIs are only accessible by SELLER
