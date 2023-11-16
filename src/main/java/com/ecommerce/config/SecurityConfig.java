@@ -55,13 +55,10 @@ public class SecurityConfig {
 								"/api/product/review/seller")
 						.hasAuthority(UserRole.ROLE_SELLER.value())
 						
-						// this APIs are only accessible by SELLER
-						.requestMatchers("/api/order/update/delivery-status", "/api/order/fetch/delivery-wise")
-						.hasAuthority(UserRole.ROLE_DELIVERY.value())
-						
+
 						// this APIs are only accessible by SELLER
 						.requestMatchers("/api/order/add", "/api/order/fetch/user-wise", "/api/cart/update",
-								"/api/cart/add", "/api/cart/fetch", "/api/cart/delete", "/api/product/review/add")
+								"/api/cart/add", "/api/cart/fetch", "/api/cart/delete", "/api/product/review/add", "api/order/update/delivery-status")
 						.hasAuthority(UserRole.ROLE_CUSTOMER.value())
 
 						// this APIs are only accessible by ADMIN & SELLER
