@@ -8,12 +8,12 @@ import com.ecommerce.Model.Cart;
 import com.ecommerce.Model.Orders;
 import com.ecommerce.Model.Product;
 import com.ecommerce.Model.User;
+import com.ecommerce.Repositories.CartRepository;
+import com.ecommerce.Repositories.OrdersRepository;
+import com.ecommerce.Repositories.ProductRepository;
 import com.ecommerce.Repositories.UserRepository;
 import com.ecommerce.exception.OrderSaveFailedException;
-import com.ecommerce.resource.CartResource;
 import com.ecommerce.service.CartService;
-import com.ecommerce.service.OrderService;
-import com.ecommerce.service.ProductService;
 import com.ecommerce.utility.Constants;
 import com.ecommerce.utility.Helper;
 import org.slf4j.Logger;
@@ -34,15 +34,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ecommerce.dto.CommonApiResponse;
 import com.ecommerce.dto.OrderResponseDto;
 import com.ecommerce.dto.UpdateDeliveryStatusRequest;
-import com.ecommerce.resource.OrderResource;
-
 
 
 @RestController
 @RequestMapping("api/order")
 @CrossOrigin(origins = "http://localhost:3000")
 public class OrderController {
-	private final Logger LOG = LoggerFactory.getLogger(CartResource.class);
+	private final Logger LOG = LoggerFactory.getLogger(CartController.class);
 
 	@Autowired
 	private CartService cartService;
@@ -51,13 +49,12 @@ public class OrderController {
 	private UserRepository userService;
 
 	@Autowired
-	private ProductService productService;
+	private ProductRepository productService;
 
 	@Autowired
-	private OrderService orderService;
-	@Autowired
-	private OrderResource orderResource;
-	
+	private OrdersRepository orderService;
+
+
 	@PostMapping("/add")
 
 	public ResponseEntity<CommonApiResponse> placeOrder(@RequestParam("userId") int userId) {
@@ -171,7 +168,26 @@ public class OrderController {
 	
 	@GetMapping("/fetch/all")
 	public ResponseEntity<OrderResponseDto> fetchAllOrders() {
-		return orderResource.fetchAllOrders();
+		LOG.info("Request received for fetching all orders");
+
+		OrderResponseDto response = new OrderResponseDto();
+
+		List<Orders> orders = new ArrayList<>();
+
+		orders = this.orderService.getAllOrders();
+
+		if (CollectionUtils.isEmpty(orders)) {
+			response.setResponseMessage("No orders found");
+			response.setSuccess(false);
+
+			return new ResponseEntity<OrderResponseDto>(response, HttpStatus.BAD_REQUEST);
+		}
+
+		response.setOrders(orders);
+		response.setResponseMessage("Orders fetched successful");
+		response.setSuccess(true);
+
+		return new ResponseEntity<OrderResponseDto>(response, HttpStatus.OK);
 	}
 	
 	@GetMapping("/fetch/user-wise")
@@ -352,8 +368,7 @@ public class OrderController {
 
 		OrderResponseDto response = new OrderResponseDto();
 
-		if (request == null || request.getOrderId() == null || request.getDeliveryStatus() == null
-				|| request.getDeliveryTime() == null || request.getDeliveryId() == 0) {
+		if (request == null || request.getOrderId() == null || request.getDeliveryStatus() == null) {
 			response.setResponseMessage("missing input");
 			response.setSuccess(false);
 
@@ -373,18 +388,11 @@ public class OrderController {
 			return new ResponseEntity<OrderResponseDto>(response, HttpStatus.BAD_REQUEST);
 		}
 
-		if (deliveryPerson == null) {
-			response.setOrders(orders);
-			response.setResponseMessage("Delivery Person not found");
-			response.setSuccess(false);
 
-			return new ResponseEntity<OrderResponseDto>(response, HttpStatus.BAD_REQUEST);
-		}
 
 		for (Orders order : orders) {
 			order.setStatus(request.getDeliveryStatus());
-			order.setDeliveryDate(request.getDeliveryDate());
-			order.setDeliveryTime(request.getDeliveryTime());
+
 
 			if (request.getDeliveryStatus().equals(Constants.DeliveryStatus.DELIVERED.value())) {
 				order.setDeliveryStatus(Constants.DeliveryStatus.DELIVERED.value());

@@ -3,11 +3,10 @@ package com.ecommerce.controller;
 import com.ecommerce.Model.Product;
 import com.ecommerce.Model.Review;
 import com.ecommerce.Model.User;
+import com.ecommerce.Repositories.ProductRepository;
 import com.ecommerce.Repositories.ReviewRepository;
 import com.ecommerce.Repositories.UserRepository;
 import com.ecommerce.exception.ReviewSaveFailedException;
-import com.ecommerce.resource.ProductResource;
-import com.ecommerce.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +24,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ecommerce.dto.AddReviewRequest;
 import com.ecommerce.dto.CommonApiResponse;
 import com.ecommerce.dto.ProductReviewResponseDto;
-import com.ecommerce.resource.ReviewResource;
-
 
 
 import java.text.DecimalFormat;
@@ -37,10 +34,10 @@ import java.util.List;
 @RequestMapping("api/product/review")
 @CrossOrigin(origins = "http://localhost:3000")
 public class ReviewController {
-	private final Logger LOG = LoggerFactory.getLogger(ProductResource.class);
+	private final Logger LOG = LoggerFactory.getLogger(ProductController.class);
 
 	@Autowired
-	private ProductService productService;
+	private ProductRepository productService;
 
 	@Autowired
 	private UserRepository userService;
@@ -48,8 +45,7 @@ public class ReviewController {
 	@Autowired
 	private ReviewRepository reviewService;
 	
-	@Autowired
-	private ReviewResource reviewResource;
+
 	
 	@PostMapping("add")
 	public ResponseEntity<CommonApiResponse> addProductReview(@RequestBody AddReviewRequest request) {

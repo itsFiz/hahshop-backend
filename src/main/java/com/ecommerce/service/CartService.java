@@ -1,9 +1,10 @@
 package com.ecommerce.service;
 
-import java.util.List;
 
 import com.ecommerce.Model.Cart;
 import com.ecommerce.Model.User;
+
+import java.util.List;
 
 public interface CartService {
 

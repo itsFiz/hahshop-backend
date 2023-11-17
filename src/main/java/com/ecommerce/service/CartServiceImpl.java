@@ -1,45 +1,47 @@
 package com.ecommerce.service;
 
-import java.util.List;
-import java.util.Optional;
 
+import com.ecommerce.Model.Cart;
+import com.ecommerce.Model.User;
+import com.ecommerce.Repositories.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ecommerce.Repositories.CartRepo;
-import com.ecommerce.Model.Cart;
-import com.ecommerce.Model.User;
+import java.util.List;
+import java.util.Optional;
+
 
 @Service
 public class CartServiceImpl implements CartService {
 	
 	@Autowired
-	private CartRepo cartRepo;
+	private CartRepository cartDao;
 
 	@Override
 	public List<Cart> addToCart(List<Cart> cart) {
-		return cartRepo.saveAll(cart);
+		return cartDao.saveAll(cart);
 	}
 
 	@Override
 	public Cart updateCart(Cart cart) {
-		return cartRepo.save(cart);
+		return cartDao.save(cart);
 	}
 
 	@Override
 	public void deleteCart(Cart cart) {
-		cartRepo.delete(cart);
+		cartDao.delete(cart);
 	}
+
 
 	@Override
 	public List<Cart> findByUser(User user) {
-		return cartRepo.findByUser(user);
+		return cartDao.findByUser(user);
 	}
 
 	@Override
 	public Cart getCartById(int cartId) {
 		
-		Optional<Cart> optionalCart = this.cartRepo.findById(cartId);
+		Optional<Cart> optionalCart = this.cartDao.findById(cartId);
 		
 		if(optionalCart.isPresent()) {
 			return optionalCart.get();
@@ -52,7 +54,7 @@ public class CartServiceImpl implements CartService {
 
 	@Override
 	public void deleteCarts(List<Cart> carts) {
-		this.cartRepo.deleteAll(carts);
+		this.cartDao.deleteAll(carts);
 	}
 
 }

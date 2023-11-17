@@ -3,10 +3,11 @@ package com.ecommerce.controller;
 import com.ecommerce.Model.Cart;
 import com.ecommerce.Model.Product;
 import com.ecommerce.Model.User;
+import com.ecommerce.Repositories.CartRepository;
+import com.ecommerce.Repositories.ProductRepository;
 import com.ecommerce.Repositories.UserRepository;
 import com.ecommerce.exception.CartSaveFailedException;
 import com.ecommerce.service.CartService;
-import com.ecommerce.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ecommerce.dto.CartRequestDto;
 import com.ecommerce.dto.CartResponseDto;
 import com.ecommerce.dto.CommonApiResponse;
-import com.ecommerce.resource.CartResource;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -40,8 +40,8 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 public class CartController {
 
-	private final Logger LOG = LoggerFactory.getLogger(CartResource.class);
 
+	private final Logger LOG = LoggerFactory.getLogger(CartController.class);
 	@Autowired
 	private CartService cartService;
 
@@ -49,9 +49,10 @@ public class CartController {
 	private UserRepository userService;
 
 	@Autowired
-	private ProductService productService;
+	private ProductRepository productService;
 
 	@PostMapping("/add")
+
 	public ResponseEntity<CommonApiResponse> addCategory(@RequestBody CartRequestDto request) {
 
 		LOG.info("Request received for add to cart");
@@ -110,6 +111,7 @@ public class CartController {
 	}
 	
 	@PutMapping("/update")
+
 	public ResponseEntity<CartResponseDto> updateCart(@RequestBody CartRequestDto request) {
 
 		LOG.info("Request received for updating the cart");
@@ -160,7 +162,9 @@ public class CartController {
 	}
 	
 	@DeleteMapping("/delete")
+
 	public ResponseEntity<CartResponseDto> deleteCart(@RequestBody CartRequestDto request) {
+
 		LOG.info("Request received for deleting the cart");
 
 		CartResponseDto response = new CartResponseDto();
@@ -203,6 +207,7 @@ public class CartController {
 	}
 	
 	@GetMapping("/fetch")
+
 	public ResponseEntity<CartResponseDto> fetchUserCart(@RequestParam("userId") int userId) {
 		LOG.info("Request received for fetching the user cart");
 
